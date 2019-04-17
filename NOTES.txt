@@ -1,0 +1,69 @@
+
+---- NOTES ------
+
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+
+// Connect to the Mongo DB
+// What does the useNewUrlParser do?
+// Answer: it's a temporary fix for an outdated setting in mongoose that will be updated in the future. Just do it.
+mongoose.connect("mongodb://localhost/unit18Populater", { useNewUrlParser: true });
+
+
+COLLECTION: news stories
+DOCUMENTS: each news story
+FIELDS: news story data points (like title, etc)
+	Headline
+	Summary
+	URL
+	...?
+	COMMENTS --> needs to be a sub-collection
+
+
+
+
+
+
+? - Find me all of the comments that Fred (1) has made.
+
+SELECT story_id, story_title FROM comments JOIN stories ON stories.id = comments.story_id WHERE comments.user_id = 1;
+
+
+USERS:
+1 - Fred
+
+STORIES:
+1 - Some Story
+
+COMMENTS:
+1 - Some Story - User 1 - Story 1
+
+
+
+
+
+
+{
+	users: [
+		{
+			id: 1
+			, username: "fred"
+			, comments: [1]
+		}
+	]
+	,
+	comments: [
+		{
+			id: 1
+			, comment: "this story sucks"
+		}
+	]
+	,
+	stories:[
+		{
+			headline:"Story 1"
+			, summary: "This is story 1"
+			, url: "https://somewhere/on/the/net"
+			, comments: [1]
+		}
+	]
+}
