@@ -1,3 +1,4 @@
 # newscrape
-All the News that's Fit to Scrape
+
+[Deployed on Heroku](https://lit-scrubland-76280.herokuapp.com/)
 
