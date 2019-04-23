@@ -49,6 +49,7 @@ app.get("/scrape", (req, res) => {
 });
 
 
+
 app.get("/articles", (req, res) => {
   db.Article.find({})
     .then(dbArticle => {
@@ -84,6 +85,8 @@ app.post("/article/:id", (req, res) => {
       res.json(err);
     });
 });
+
+
 
 
 app.listen(PORT, () => {
